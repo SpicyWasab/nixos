@@ -144,6 +144,8 @@
   # for stylix to work, somehow
   # stylix.image = null;
 
+  programs.ssh.startAgent = true;
+
   # programs.missionCenter.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
