@@ -38,13 +38,13 @@
 
     #workspaces button {
       all: unset;
-      color: alpha(@base09, 0.4); /* if workspace contains windows */
+      color: alpha(@base0A, 0.4); /* if workspace contains windows */
       padding: 0px 5px;
       border: none;
     }
 
     #workspaces button.active {
-      color: @base08;
+      color: @base0A;
     }
 
     #custom-distro, #clock, #window, #submap, #bluetooth, #network, #battery, #group-expand, #custom-expand, #cpu, #memory, #temperature {
