@@ -25,11 +25,8 @@
       # to have it up-to-date or simply don't specify the nixpkgs input  
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # walker.url = "github:abenz1267/walker";
   };
 
-  # outputs = { ... }@inputs: {
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: 
     let system = "x86_64-linux";
     in {
@@ -52,7 +49,7 @@
             home-manager.backupFileExtension = "bak";
 
             # TODO replace ryan with your own username
-            home-manager.users.wasab = import ./home.nix;
+            home-manager.users.wasab = import ./home;
 
           # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           home-manager.extraSpecialArgs = { inherit inputs system; };
