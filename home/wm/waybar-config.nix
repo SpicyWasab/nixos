@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.waybar.settings = {
@@ -18,7 +18,7 @@
         tooltip-format = "<tt>{calendar}</tt>";
         calendar = {
             format = {
-                today = "<span color='#fAfBfC'><b>{}</b></span>";
+                today = "<span color='${config.lib.stylix.colors.withHashtag.base08}'><b>{}</b></span>";
             };
         };
         actions = {

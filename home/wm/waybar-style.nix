@@ -19,12 +19,12 @@
       padding: 7px;
       margin: 5 5 5 5;
       border-radius: 10px;
-      background: alpha(black,.6);
+      background: alpha(@base00,.85);
       box-shadow: 0px 0px 2px rgba(0, 0, 0, .6); 
     }
 
     tooltip {
-      background:black;
+      background: @base01;
       color: @base04;
     }
 
@@ -38,16 +38,16 @@
 
     #workspaces button {
       all: unset;
-      color: alpha(@base0A, 0.4); /* if workspace contains windows */
+      color: alpha(@base0D, 0.5); /* if workspace contains windows */
       padding: 0px 5px;
       border: none;
     }
 
     #workspaces button.active {
-      color: @base0A;
+      color: @base0D;
     }
 
-    #custom-distro, #clock, #window, #submap, #bluetooth, #network, #battery, #group-expand, #custom-expand, #cpu, #memory, #temperature {
+    #custom-distro, #clock, #window, #submap, #wireplumber #bluetooth, #network, #battery, #group-expand, #custom-expand, #cpu, #memory, #temperature {
       transition: all .3s ease;
       padding: 0px 5px;
     }
@@ -56,12 +56,12 @@
       color: @base0A;
     }
 
-    #custom-distro:hover, #clock:hover, #window:hover, #bluetooth:hover, #network:hover, #battery:hover, #group-expand:hover, #custom-expand:hover, #cpu:hover, #memory:hover, #temperature:hover {
-      color: @base0B;
+    #custom-distro:hover, #clock:hover, #window:hover, #wireplumber:hover, #bluetooth:hover, #network:hover, #battery:hover, #group-expand:hover, #custom-expand:hover, #cpu:hover, #memory:hover, #temperature:hover {
+      color: @base0D;
     }
 
     #battery.charging {
-      color: @base0C;
+      color: @base0B;
     }
 
     #battery.warning:not(.charging) {
@@ -79,7 +79,7 @@
 
     @keyframes blink {
       to {
-        color: white;
+        color: @base04;
       }
     }
   '';
