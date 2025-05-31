@@ -8,7 +8,7 @@
       # hyprlock (and also waybar) from : https://github.com/elifouts/Dotfiles/blob/main/.config/hypr/hyprlock.conf
       background {
         monitor =
-        path = screenshot
+        path = ${config.stylix.image} # screenshot
         blur_size = 5
         blur_passes = 3
         brightness = .6
