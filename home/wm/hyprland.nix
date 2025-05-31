@@ -4,8 +4,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = [ "eDP-1, 1536x1024@59.99700,0x0,1" ];
-      
+      # monitor = [ "eDP-1, 1536x1024@59.99700,0x0,1" ];
+      monitor = [ ", preferred, auto, 1" ]; # hopefully it just works whatever monitor I use
+
       # programs
       "$terminal" = "kitty";
       "$filemanager" = "nautilus";

@@ -10,6 +10,7 @@
       set -g editor nvim
 
       alias ls="eza"
+      alias config="cd ~/.config/nixos"
 
       function y
 	      set tmp (mktemp -t "yazi-cwd.xxxxxx")
