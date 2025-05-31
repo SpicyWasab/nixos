@@ -15,8 +15,6 @@
 
       # terminal browsers
       offpunk
-      w3m
-      lynx
 
       # hyprland-related
       hypridle
@@ -33,6 +31,12 @@
       loupe
       evince
       warp
+
+      # music and homeworks mood
+      amberol
+      cavalier # to put in a separate file to use stylix colors
+      parabolic
+      gnome-solanum # pomodoro timer
       
       # slowly replacing every gui app with an alternative
       zathura # instead of evince (which was great)
