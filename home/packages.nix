@@ -34,7 +34,6 @@
 
       # music and homeworks mood
       amberol
-      cavalier # to put in a separate file to use stylix colors
       parabolic
       gnome-solanum # pomodoro timer
       
