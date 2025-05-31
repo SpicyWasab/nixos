@@ -7,6 +7,10 @@
       font-family: "CodeNewRoman Nerd Font Propo";
     }
 
+    #waybar {
+      background-color: transparent;
+    }
+
     .modules-left, .modules-right {
       color: @base04;
     }
@@ -17,6 +21,11 @@
       border-radius: 10px;
       background: alpha(black,.6);
       box-shadow: 0px 0px 2px rgba(0, 0, 0, .6); 
+    }
+
+    tooltip {
+      background:black;
+      color: @base04;
     }
 
     #workspaces {
