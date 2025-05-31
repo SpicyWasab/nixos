@@ -40,7 +40,7 @@
   # git (took me a while)
   programs.git = {
     enable = true;
-    userName  = "wasab'";
-    userEmail = "le_wasabi_ca_pik@proton.me";
+    userName  = "Wasab'";
+    userEmail = "spicywasab+github@proton.me";
   };
 }
