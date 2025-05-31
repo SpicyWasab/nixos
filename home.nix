@@ -50,6 +50,7 @@
       libreoffice
       gimp
       audacity
+      vscodium
 
       # zen browser (use a home-manager module later) (edit : module is broken)
       inputs.zen-browser.packages."${system}".twilight
@@ -81,11 +82,8 @@
   # enabling user fonts
   fonts.fontconfig.enable = true;
 
-  stylix.enable = true;
-  # stylix.image = "$home/wallpapers/a_computer_room_with_a_desk_and_a_computer_monitor.jpg";
-  # blueforest looked good as well
-  # tried spaceduck
   stylix = {
+    enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     cursor = {
       package = pkgs.bibata-cursors;
@@ -343,12 +341,10 @@
       ];
 
       bindl = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, brightnessctl --exponent=1.5 --min-value=1% -- set 5%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl --exponent=1.5 --min-value=1% -- set 5%-"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
       ];
 
       windowrulev2 = [
@@ -378,7 +374,193 @@
   services.hypridle.enable = true;
   services.hyprpaper.enable = true;
 
-  # programs.waybar.enable = true;
+  stylix.targets.waybar.addCss = false;
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        reload_style_on_change = true;
+        modules-left = ["custom/distro" "clock" "hyprland/window" "hyprland/submap" ];
+        modules-center = ["hyprland/workspaces"];
+        modules-right = ["group/expand" "wireplumber" "bluetooth" "network" "battery"];
+        "custom/distro" = {
+            format = "";
+        };
+        clock = {
+          format = "{:%H:%M}";
+          interval = 1;   
+          tooltip-format = "<tt>{calendar}</tt>";
+          calendar = {
+              format = {
+                  today = "<span color='#fAfBfC'><b>{}</b></span>";
+              };
+          };
+          actions = {
+              on-click-right = "shift_down";
+              on-click = "shift_up";
+          };
+        };
+        "hyprland/window" = {
+          format = "{initialTitle}";
+        };
+        "hyprland/submap" = {
+          format = "{}";
+        };
+        "hyprland/workspaces" = {
+          format = "";
+          persistent-workspaces = {
+              "*" = [ 1 2 3 4 5 ];
+          };
+        };
+        "custom/expand" = {
+          format = "";
+          tooltip = false;
+        };
+        "group/expand" = {
+          orientation ="horizontal";
+          drawer = {
+              transition-duration = 600;
+              transition-to-left = true;
+              click-to-reveal = true;
+          };
+          modules = ["custom/expand" "cpu" "memory" "temperature" "custom/endpoint"];
+        };
+        cpu = {
+          format = "";
+          tooltip = true;
+        };
+        memory = {
+          format = "";
+        };
+        temperature = {
+          critical-threshold = 80;
+          format = "";
+        };
+        "custom/endpoint" = {
+          format = "|";
+          tooltip = false;
+        };
+        wireplumber = {
+          format = "{volume}% {icon}";
+          format-muted = "";
+          max-volume = 100;
+          format-icons = ["" "" ""];
+        };
+        bluetooth = {
+          format-on = "󰂯";
+          format-off = "BT-off";
+          format-disabled = "󰂲";
+          format-connected-battery = "{device_battery_percentage}% 󰂯";
+          format-alt = "{device_alias} 󰂯";
+          tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+          tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+          tooltip-format-enumerate-connected = "{device_alias}\n{device_address}";
+          tooltip-format-enumerate-connected-battery = "{device_alias}\n{device_address}\n{device_battery_percentage}%";
+          on-click-right = "blueman-manager";
+        };
+        network = {
+          format-wifi = "";
+          format-ethernet = "";
+          format-disconnected = "";
+          tooltip-format-disconnected = "Error";
+          tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+          tooltip-format-ethernet = "{ifname} 🖧 ";
+          on-click = "kitty nmtui";
+        };
+        battery = {
+          interval = 30;
+          states = {
+              good = 95;
+              warning = 30;
+              critical = 20;
+          };
+          format = "{capacity}% {icon}";
+          format-charging = "{capacity}% 󰂄";
+          format-plugged = "{capacity}% 󰂄 ";
+          format-alt = "{time} {icon}";
+          format-icons = [
+              "󰁻" "󰁼" "󰁾" "󰂀" "󰂂" "󰁹"
+          ];
+        };
+      };
+    };
+    style = lib.mkAfter ''
+      * {
+        font-size: 14px;
+        font-family: "CodeNewRoman Nerd Font Propo";
+      }
+
+      .modules-left, .modules-right {
+        color: @base04;
+      }
+
+      .modules-left, .modules-center, .modules-right {
+        padding: 7px;
+        margin: 5 5 5 5;
+        border-radius: 10px;
+        background: alpha(black,.6);
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, .6); 
+      }
+
+      #workspaces {
+        padding: 0px 5px;
+      }
+
+      #workspaces button.empty {
+        color: @base01;
+      }
+
+      #workspaces button {
+        all: unset;
+        color: alpha(@base09, 0.4); /* if workspace contains windows */
+        padding: 0px 5px;
+        border: none;
+      }
+
+      #workspaces button.active {
+        color: @base08;
+      }
+
+      #custom-distro, #clock, #window, #submap, #bluetooth, #network, #battery, #group-expand, #custom-expand, #cpu, #memory, #temperature {
+        transition: all .3s ease;
+        padding: 0px 5px;
+      }
+
+      #submap {
+        color: @base0A;
+      }
+
+      #custom-distro:hover, #clock:hover, #window:hover, #bluetooth:hover, #network:hover, #battery:hover, #group-expand:hover, #custom-expand:hover, #cpu:hover, #memory:hover, #temperature:hover {
+        color: @base0B;
+      }
+
+      #battery.charging {
+        color: @base0C;
+      }
+
+      #battery.warning:not(.charging) {
+        color: @base0A;
+      }
+
+      #battery.critical:not(.charging) {
+        color: @base08;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      @keyframes blink {
+        to {
+          color: white;
+        }
+      }
+    '';
+  };
+  
   programs.tofi = {
     enable = true;
     settings = {
