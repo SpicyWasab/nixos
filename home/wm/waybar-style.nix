@@ -52,6 +52,10 @@
       padding: 0px 5px;
     }
 
+    #bluetooth {
+      margin: 0px 5px;
+    }
+
     #submap {
       color: @base0A;
     }
