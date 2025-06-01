@@ -1,10 +1,21 @@
 { pkgs, ... }:
 
-{
+let themes = {
+  nord = {
+    scheme = "nord";
+    wallpaper = ./wallpapers/nord_mountains.png;
+  };
+  spaceduck = {
+    scheme = "spaceduck";
+    wallpaper = ./wallpapers/spaceduck.png;
+  };
+};
+in let theme = themes.spaceduck;
+in {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-    image = ./wallpapers/nord_mountains.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme.scheme}.yaml";
+    image = theme.wallpaper;
     cursor = {
       package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Ice";
