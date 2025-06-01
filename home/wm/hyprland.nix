@@ -106,6 +106,7 @@
 
       bind = [
         "$mainMod, r, exec, pkill waybar && hyprctl dispatch exec waybar"
+        "$mainMod, r, exec, pkill hyprpaper && hyprctl dispatch exec hyprpaper"
         "$mainMod, t, exec, $terminal"
         "$mainMod, q, killactive,"
         "$mainMod, m, exit,"
