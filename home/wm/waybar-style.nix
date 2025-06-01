@@ -12,20 +12,21 @@
     }
 
     .modules-left, .modules-right {
-      color: @base04;
+      color: @base05;
     }
 
     .modules-left, .modules-center, .modules-right {
       padding: 7px;
       margin: 5 5 5 5;
       border-radius: 10px;
-      background: alpha(@base00,.85);
+      background: @base00;
+      border: 1px solid alpha(@base03, .75);
       box-shadow: 0px 0px 2px rgba(0, 0, 0, .6); 
     }
 
     tooltip {
       background: @base01;
-      color: @base04;
+      color: @base05;
     }
 
     #workspaces {
@@ -33,7 +34,7 @@
     }
 
     #workspaces button.empty {
-      color: @base01;
+      color: alpha(@base02, .5);
     }
 
     #workspaces button {
@@ -83,7 +84,7 @@
 
     @keyframes blink {
       to {
-        color: @base04;
+        color: @base05;
       }
     }
   '';
