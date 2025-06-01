@@ -39,6 +39,8 @@
           # so the old configuration file still takes effect
           ./configuration.nix
 
+          ./stylix.nix # for apps and system-wide styling (grub / plymouth)
+
           stylix.nixosModules.stylix
         
 	        home-manager.nixosModules.home-manager

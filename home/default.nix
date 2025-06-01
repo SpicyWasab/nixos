@@ -6,7 +6,6 @@
     ./wm # everything related to the WM and its tools
     ./cli.nix # shell and cli programs
     ./programs # everything else that is programs.<something>
-    ./stylix.nix # for apps styling
     ./xdg.nix # mainly userDirs and portals
   ];
   
