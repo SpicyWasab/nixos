@@ -16,8 +16,8 @@
     }
 
     .modules-left, .modules-center, .modules-right {
-      padding: 7px;
-      margin: 5 5 5 5;
+      padding: 7 5 7 5; /* 7 block, 5 inline */
+      margin: 10 10 0 10;
       border-radius: 10px;
       background: @base00;
       border: 1px solid alpha(@base03, .75);

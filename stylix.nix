@@ -9,6 +9,10 @@ let themes = {
     scheme = "spaceduck";
     wallpaper = ./wallpapers/spaceduck.png;
   };
+  woodland = {
+    scheme = "woodland";
+    wallpaper = ./wallpapers/woodland.webp;
+  };
 };
 in let theme = themes.spaceduck;
 in {
