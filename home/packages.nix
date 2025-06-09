@@ -20,6 +20,7 @@
       hypridle
       hyprpaper
       waybar
+      hyprshot
 
       # gui apps (gnome core)
       nautilus

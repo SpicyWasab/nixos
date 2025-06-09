@@ -139,6 +139,8 @@
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
         "$mainMod, return, submap, resize"
+
+        ", PRINT, exec, hyprshot -m output"
       ];
 
       bindm = [
