@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{package pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -53,6 +53,9 @@
 
       # zen browser (use a home-manager module later) (edit : module is broken)
       inputs.zen-browser.packages."${system}".twilight
+
+      # tor browser (just in case)
+      tor-browser-bundle-bin
 
       thunderbird
 
