@@ -127,6 +127,15 @@
   # programs.firefox.enable = true; # now using zen browser
   services.gvfs.enable = true; # required for nautilus
 
+  # okay, admettons
+  systemd.user.services.gvfs-daemon.enable = true;
+  systemd.user.services.gvfs-mtp-volume-monitor.enable = true;
+  systemd.user.services.gvfs-afc-volume-monitor.enable = true;
+  systemd.user.services.gvfs-goa-volume-monitor.enable = true;
+  systemd.user.services.gvfs-gphoto2-volume-monitor.enable = true;
+  systemd.user.services.gvfs-metadata.enable = true;
+  systemd.user.services.gvfs-udisks2-volume-monitor.enable = true;
+
   services.displayManager.ly.enable = true;
 
   

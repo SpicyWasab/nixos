@@ -33,6 +33,9 @@
       evince
       warp
 
+      # for gnome please
+      gnome.gvfs
+
       # music and homeworks mood
       amberol
       parabolic
