@@ -65,6 +65,9 @@
       # obsidian (vive la prépa)
       obsidian
 
+      # selfhosted !
+      appflowy
+
       # ocaml !
       ocamlPackages.utop # vive la mp2i
 
