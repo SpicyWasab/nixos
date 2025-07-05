@@ -29,6 +29,7 @@
       gnome-disk-utility
       mission-center
       decibels
+      showtime
       loupe
       evince
       warp
