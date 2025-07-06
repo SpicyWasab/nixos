@@ -73,7 +73,7 @@
       octave
 
       # latex (vive la prépa, le TIPE, et peut-être un jour la recherche)
-      (texlive.combine { inherit (texlive) scheme-medium minted upquote; }) # minted was not included in medium
+      (texlive.combine { inherit (texlive) scheme-medium minted upquote standalone preview; }) # minted was not included in medium
 
 
       # icons
