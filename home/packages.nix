@@ -51,6 +51,7 @@
       gimp
       audacity
       vscodium
+      kdePackages.kdenlive
 
       # zen browser (use a home-manager module later) (edit : module is broken)
       inputs.zen-browser.packages."${system}".twilight
