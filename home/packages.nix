@@ -76,6 +76,8 @@
       # latex (vive la prépa, le TIPE, et peut-être un jour la recherche)
       (texlive.combine { inherit (texlive) scheme-medium minted upquote standalone preview; }) # minted was not included in medium
 
+      # messing with AI
+      ollama
 
       # icons
       adwaita-icon-theme
