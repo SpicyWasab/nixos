@@ -8,7 +8,7 @@
       monitor = [ ", preferred, auto, 1" ]; # hopefully it just works whatever monitor I use
 
       # programs
-      "$terminal" = "kitty";
+      "$terminal" = "alacritty";
       "$filemanager" = "nautilus";
       "$menu" = "tofi-drun | xargs hyprctl dispatch exec --";
       "$browser" = "zen";
