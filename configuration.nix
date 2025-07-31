@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports =
@@ -126,6 +126,9 @@
 
   # programs.firefox.enable = true; # now using zen browser
   services.gvfs.enable = true; # required for nautilus
+  programs.dconf.enable = true; # trying really hard to make nautilus work with network fs since I now have a nextcloud instance
+  # environment.sessionVariables.GIO_EXTRA_MODULES = "${config.services.gvfs.package}/lib/gio/modules";
+  # environment.variables.GIO_EXTRA_MODULES = lib.mkForce config.environment.sessionVariables.GIO_EXTRA_MODULES;
 
   services.displayManager.ly.enable = true;
 
