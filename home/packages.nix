@@ -66,6 +66,7 @@
 
       # selfhosted !
       appflowy
+      owncloud-client
 
       # ocaml !
       ocamlPackages.utop # vive la mp2i
