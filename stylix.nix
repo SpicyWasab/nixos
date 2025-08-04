@@ -7,7 +7,8 @@ let themes = {
   };
   spaceduck = {
     scheme = "spaceduck";
-    wallpaper = ./wallpapers/spaceduck.png;
+    # wallpaper = ./wallpapers/spaceduck.png;
+    wallpaper = ./wallpapers/hang-in-there.png;
   };
   woodland = {
     scheme = "woodland";
