@@ -67,6 +67,7 @@
       # selfhosted !
       appflowy
       owncloud-client
+      pika-backup # yay !
 
       # ocaml !
       ocamlPackages.utop # vive la mp2i
