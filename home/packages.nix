@@ -91,5 +91,9 @@
       # cursors
       bibata-cursors
       base16-schemes
+
+      # pas une bonne idée avec la prépa mais faut bien que je profite un peu
+      heroic
+      steam
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
