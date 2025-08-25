@@ -186,6 +186,9 @@
 
   # List services that you want to enable:
 
+  # selfhosted yay !
+  services.tailscale.enable = true; # to access my raspberry-pi when I'm on a vacation or at my student appartment
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
