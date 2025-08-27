@@ -48,6 +48,7 @@
 
       # file manipulations and editing
       libreoffice
+      jdk # required for libreoffice base to work
       gimp
       audacity
       vscodium
