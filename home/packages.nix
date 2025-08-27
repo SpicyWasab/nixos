@@ -65,6 +65,9 @@
       # obsidian (vive la prépa)
       obsidian
 
+      # anki (vive la prépaaaa)
+      anki
+
       # selfhosted !
       appflowy
       owncloud-client
