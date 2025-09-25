@@ -140,7 +140,8 @@
 
         "$mainMod, return, submap, resize"
 
-        ", PRINT, exec, hyprshot -m output"
+        "SHIFT, PRINT, exec, hyprshot -m output"
+        ", PRINT, exec, hyprshot -m region"
       ];
 
       bindm = [
