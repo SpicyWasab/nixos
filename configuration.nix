@@ -76,7 +76,7 @@
   users.users.wasab = {
     isNormalUser = true;
     description = "Wasab";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
     shell = pkgs.fish; # (a reconsiderer)
   };
@@ -188,6 +188,9 @@
 
   # selfhosted yay !
   services.tailscale.enable = true; # to access my raspberry-pi when I'm on a vacation or at my student appartment
+
+  # for development
+  virtualisation.docker.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
