@@ -15,7 +15,7 @@ let themes = {
     wallpaper = ./wallpapers/woodland.webp;
   };
 };
-in let theme = themes.spaceduck;
+in let theme = themes.nord;
 in {
   stylix = {
     enable = true;
