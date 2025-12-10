@@ -58,7 +58,7 @@
       inputs.zen-browser.packages."${system}".twilight
 
       # tor browser (just in case)
-      tor-browser-bundle-bin
+      tor-browser
 
       thunderbird
 
@@ -85,6 +85,9 @@
       # messing with AI
       ollama
 
+      # now that someone gave me a wacom tablet
+      rnote
+
       # icons
       adwaita-icon-theme
       morewaita-icon-theme
@@ -99,5 +102,6 @@
       # pas une bonne idée avec la prépa mais faut bien que je profite un peu
       heroic
       steam
+      prismlauncher
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

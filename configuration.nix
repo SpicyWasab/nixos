@@ -150,12 +150,12 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   # because this was annoying (et comme ça je suis sûr de pas éteindre mon ordi accidentellement en cours...
-  services.logind.extraConfig = ''
+  services.logind.settings.Login = {
     # don’t shutdown when power button is short-pressed
-    HandlePowerKey=suspend
-    HandleLidSwitch=suspend
+    HandlePowerKey= "suspend";
+    HandleLidSwitch= "suspend";
     # LidSwitchIgnoreInhibited=yes
-  '';
+  };
   
   security.pam.services.hyprlock = {};
   security.rtkit.enable = true;
