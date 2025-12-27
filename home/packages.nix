@@ -87,6 +87,7 @@
 
       # now that someone gave me a wacom tablet
       rnote
+      xournalpp # apparently there's a neat obsidian plugin so let's try this
 
       # icons
       adwaita-icon-theme

@@ -7,15 +7,15 @@ let themes = {
   };
   spaceduck = {
     scheme = "spaceduck";
-    # wallpaper = ./wallpapers/spaceduck.png;
-    wallpaper = ./wallpapers/hang-in-there.png;
+    wallpaper = ./wallpapers/spaceduck.png;
+    # wallpaper = ./wallpapers/hang-in-there.png;
   };
   woodland = {
     scheme = "woodland";
     wallpaper = ./wallpapers/woodland.webp;
   };
 };
-in let theme = themes.nord;
+in let theme = themes.spaceduck;
 in {
   stylix = {
     enable = true;
