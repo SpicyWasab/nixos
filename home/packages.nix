@@ -104,5 +104,8 @@
       heroic
       steam
       prismlauncher
+
+      # histoire de pouvoir vloguer avec le style à la seul sur mars
+      obs-studio
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
