@@ -110,8 +110,6 @@
     # LidSwitchIgnoreInhibited=yes
   };
 
-  programs.ssh.startAgent = true;
-
   # for heroic to work
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;

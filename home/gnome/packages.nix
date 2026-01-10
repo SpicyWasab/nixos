@@ -3,15 +3,15 @@
 {
   home.packages = with pkgs; [
     # gui apps (gnome core)
-    nautilus
-    sushi
-    baobab
-    gnome-disk-utility
-    mission-center
-    decibels
-    showtime
-    loupe
-    papers
-    warp
+    # nautilus
+    # sushi
+    # baobab
+    # gnome-disk-utility
+    # mission-center
+    # decibels
+    # showtime
+    # loupe
+    # papers
+    # warp
   ];
 }
