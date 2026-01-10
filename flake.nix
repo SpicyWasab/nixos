@@ -31,32 +31,62 @@
     let system = "x86_64-linux";
     in {
       # Please replace my-nixos with your hostname
-      nixosConfigurations.wasab-slg2-nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system; };
-        modules = [
-          # Import the previous configuration.nix we used,
-          # so the old configuration file still takes effect
-          ./configuration.nix
+      nixosConfigurations = {
+        hyprland = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs system; };
+          modules = [
+            # Import the previous configuration.nix we used,
+            # so the old configuration file still takes effect
+            ./configs/configuration.nix
+            ./configs/hyprland.nix
 
-          ./stylix.nix # for apps and system-wide styling (grub / plymouth)
+            ./stylix.nix # for apps and system-wide styling (grub / plymouth)
 
-          stylix.nixosModules.stylix
-        
-	        home-manager.nixosModules.home-manager
-          # walker.homeManagerModules.default
-	        {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "bak";
+            stylix.nixosModules.stylix
+          
+            home-manager.nixosModules.home-manager
+            # walker.homeManagerModules.default
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
 
-            # TODO replace ryan with your own username
-            home-manager.users.wasab = import ./home;
+              # TODO replace ryan with your own username
+              home-manager.users.wasab = import ./home/hyprland;
 
-          # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          home-manager.extraSpecialArgs = { inherit inputs system; };
-          }
-        ];
+              # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+              home-manager.extraSpecialArgs = { inherit inputs system; };
+            }
+          ];
+        };
+
+        gnome = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs system; };
+          modules = [
+            # Import the previous configuration.nix we used,
+            # so the old configuration file still takes effect
+            ./configs/configuration.nix
+            ./configs/gnome.nix
+
+            # ./stylix.nix # for apps and system-wide styling (grub / plymouth)
+          
+            home-manager.nixosModules.home-manager
+            # walker.homeManagerModules.default
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
+
+              # TODO replace ryan with your own username
+              home-manager.users.wasab = import ./home/gnome;
+
+              # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+              home-manager.extraSpecialArgs = { inherit inputs system; };
+            }
+          ];
+        };
       };
     };
   }

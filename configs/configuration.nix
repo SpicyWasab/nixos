@@ -87,67 +87,20 @@
   # flakes baby !
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  #   kitty
-     brightnessctl
-     playerctl
-     powertop
-     # evince
-     # obsidian
-     # baobab
-     # gnome-disk-utility
-     # sushi
-     # decibels
-     # loupe
-     # inputs.zen-browser.packages."${system}".twilight # I should definitely move this later with home manager when I'll figure it out
-     # ocamlPackages.utop # vive la MP2I
-  ];
-
   # WASAB
- 
-  # xdg.userDirs = {
-  #    enable = true;
-  #    createDirectories = true;
-  # };
-
-  programs.hyprland.enable = true;
-
-  # programs.wofi.enable = true;
-
-  # fonts.packages = with pkgs; [
-  #   font-awesome
-  # ];
-
   programs.fish.enable = true; # cannot put this in home manager
 
-  # programs.firefox.enable = true; # now using zen browser
-  services.gvfs.enable = true; # required for nautilus
-  services.gnome.glib-networking.enable = true;
-  programs.dconf.enable = true; # trying really hard to make nautilus work with network fs since I now have a nextcloud instance
-  # environment.sessionVariables.GIO_EXTRA_MODULES = "${config.services.gvfs.package}/lib/gio/modules";
-  # environment.variables.GIO_EXTRA_MODULES = lib.mkForce config.environment.sessionVariables.GIO_EXTRA_MODULES;
-
-  services.displayManager.ly.enable = true;
-
-  
   services.power-profiles-daemon.enable = true;
 
   # services.tlp.enable = true; # for battery life
   powerManagement.powertop.enable = true;
-  
   services.thermald.enable = true;
 
   # bluetooth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
 
-  # for hyprland electron apps
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
   
   # because this was annoying (et comme ça je suis sûr de pas éteindre mon ordi accidentellement en cours...
   services.logind.settings.Login = {
@@ -156,33 +109,12 @@
     HandleLidSwitch= "suspend";
     # LidSwitchIgnoreInhibited=yes
   };
-  
-  security.pam.services.hyprlock = {};
-  security.rtkit.enable = true;
-
-  # to allow kdeconnect
-  networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
-
-  # for stylix to work, somehow
-  # stylix.image = null;
 
   programs.ssh.startAgent = true;
 
   # for heroic to work
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-
-  # programs.missionCenter.enable = true;
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 

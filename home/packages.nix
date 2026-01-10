@@ -10,84 +10,19 @@
       xz
       bat
       htop
-      # git # use a module later
       nodejs # my favourite scripting language ngl
-
-      # terminal browsers
-      offpunk
-
-      # hyprland-related
-      hypridle
-      hyprpaper
-      waybar
-      hyprshot
-
-      # gui apps (gnome core)
-      nautilus
-      sushi
-      baobab
-      gnome-disk-utility
-      mission-center
-      decibels
-      showtime
-      loupe
-      evince
-      warp
-
-      # music and homeworks mood
-      amberol
-      parabolic
-      gnome-solanum # pomodoro timer
-      
-      # slowly replacing every gui app with an alternative
-      zathura # instead of evince (which was great)
-      imv
-      feh
-      qimgv
       yazi
 
-      # file manipulations and editing
-      libreoffice
-      jdk # required for libreoffice base to work
-      gimp
-      audacity
-      vscodium
-      kdePackages.kdenlive
-
-      # zen browser (use a home-manager module later) (edit : module is broken)
-      inputs.zen-browser.packages."${system}".twilight
-
-      # tor browser (just in case)
-      tor-browser
-
-      thunderbird
-
-      # obsidian (vive la prépa)
-      obsidian
-
-      # anki (vive la prépaaaa)
-      anki
-
-      # selfhosted !
-      appflowy
-      owncloud-client
-      pika-backup # yay !
+      # jdk # required for libreoffice base to work
 
       # ocaml !
-      ocamlPackages.utop # vive la mp2i
+      ocamlPackages.utop # vive la m2i
 
       # for scientific calculation (vive la prépa)
       octave
 
       # latex (vive la prépa, le TIPE, et peut-être un jour la recherche)
       (texlive.combine { inherit (texlive) scheme-medium minted upquote standalone preview; }) # minted was not included in medium
-
-      # messing with AI
-      ollama
-
-      # now that someone gave me a wacom tablet
-      rnote
-      xournalpp # apparently there's a neat obsidian plugin so let's try this
 
       # icons
       adwaita-icon-theme
@@ -98,14 +33,8 @@
 
       # cursors
       bibata-cursors
-      base16-schemes
 
-      # pas une bonne idée avec la prépa mais faut bien que je profite un peu
-      heroic
-      steam
-      prismlauncher
-
-      # histoire de pouvoir vloguer avec le style à la seul sur mars
-      obs-studio
+      # color schemes for stylix
+      base16-schemes  
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
