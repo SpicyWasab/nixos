@@ -13,5 +13,7 @@
     # loupe
     # papers
     # warp
+
+    bazaar
   ];
 }
