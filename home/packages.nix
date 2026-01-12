@@ -23,6 +23,10 @@
 
       # latex (vive la prépa, le TIPE, et peut-être un jour la recherche)
       (texlive.combine { inherit (texlive) scheme-medium minted upquote standalone preview; }) # minted was not included in medium
+      
+      # typst seems interesting, maybe I should take class notes with it instead of obsidian ?
+      typst
+      tinymist
 
       # icons
       adwaita-icon-theme
