@@ -45,5 +45,8 @@
 
     # histoire de pouvoir vloguer avec le style à la seul sur mars
     obs-studio
+
+    # planifying things
+    planify
   ];
 }
