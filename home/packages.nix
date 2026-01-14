@@ -39,6 +39,10 @@
       bibata-cursors
 
       # color schemes for stylix
-      base16-schemes  
+      base16-schemes
+
+      # for some extensions to work
+      libgda5 # for copyous
+      libgda6 # because libgda5 doesn't seem to work
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

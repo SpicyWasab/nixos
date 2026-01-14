@@ -35,6 +35,56 @@
       set number relativenumber
       set autoindent expandtab tabstop=2 shiftwidth=2
     '';
+    extraLuaConfig = ''
+      vim.lsp.enable("tinymist")
+
+      vim.lsp.config["tinymist"] = {
+
+        cmd = { "tinymist" },
+
+        filetypes = { "typst" },
+
+        settings = {
+
+          exportPdf = "onSave"
+
+        }
+
+      }
+
+      vim.api.nvim_create_user_command("OpenPdf", function()
+
+        local filepath = vim.api.nvim_buf_get_name(0)
+
+        if filepath:match("%.typ$") then
+
+          local pdf_path = filepath:gsub("%.typ$", ".pdf")
+
+          vim.system({ "open", pdf_path })
+
+        end
+
+      end, {})
+    '';
+    plugins = [
+      {
+        plugin = pkgs.vimPlugins.ultisnips;
+        config = ''
+          let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
+          let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
+          let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+        '';
+      }
+      {
+        plugin = pkgs.vimPlugins.typst-vim;
+      }
+      {
+        plugin = pkgs.vimPlugins.nvim-lspconfig;
+      }
+      {
+        plugin = pkgs.vimPlugins.typst-preview-nvim;
+      }
+    ];
   };
 
   # git (took me a while)
