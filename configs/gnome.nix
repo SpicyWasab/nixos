@@ -17,6 +17,12 @@
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
 
+  # for KDE gsconnect to work
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
+  };
+
   services.fprintd.enable = true;
   # If simply enabling fprintd is not enough, try enabling fprintd.tod...
   services.fprintd.tod.enable = true;
