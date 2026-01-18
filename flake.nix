@@ -25,6 +25,11 @@
       # to have it up-to-date or simply don't specify the nixpkgs input  
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fprintSurface = {
+      url = "github:SpicyWasab/libfprint-SLG-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: 
@@ -65,6 +70,30 @@
           inherit system;
           specialArgs = { inherit inputs system; };
           modules = [
+            # in order to make fingerprint working
+            # apparently I should put this at the start of this array
+            # according to https://lantian.pub/en/article/modify-computer/nixos-packaging.lantian/
+            ({
+              nixpkgs.overlays = [
+                (final: prev: {
+                  libfprint = inputs.fprintSurface.packages."${prev.system}".libfprint;
+
+                  fprintd = prev.fprintd.override {
+                    libfprint = final.libfprint;
+                  };
+
+                  # libfprint-tod = inputs.fprintSurface.packages."${prev.system}".libfprint-tod;
+                  
+                  # gnome-control-center = prev.gnome-control-center.overrideAttrs (oldAttrs: {
+                  #   nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.pkg-config ];
+                  #   buildInputs = oldAttrs.buildInputs ++ [ final.libfprint ];
+                  # });
+                })
+
+                # Trying to get GNOME Control Center to work with fingerprint
+              ];
+            })
+
             # Import the previous configuration.nix we used,
             # so the old configuration file still takes effect
             ./configs/configuration.nix

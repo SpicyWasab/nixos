@@ -105,6 +105,26 @@
         "type": "github"
       }
     },
+    "fprintSurface": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768757570,
+        "narHash": "sha256-dYHZpli8MhA8EpaFCCfM0bUVMcvH80pDKFiJcCnOvHc=",
+        "owner": "SpicyWasab",
+        "repo": "libfprint-SLG-nixos",
+        "rev": "37bdb0c058b3f189adb4337e21b4027d123f65ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SpicyWasab",
+        "repo": "libfprint-SLG-nixos",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -225,6 +245,7 @@
     },
     "root": {
       "inputs": {
+        "fprintSurface": "fprintSurface",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "stylix": "stylix",

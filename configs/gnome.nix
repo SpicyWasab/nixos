@@ -3,11 +3,12 @@
 
 {
   environment.systemPackages = with pkgs; [
-
+    libfprint
   ];
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.sessionPath = [ pkgs.gdm ];
   services.flatpak.enable = true;
   services.fwupd.enable = true; # trying to get GNOME security tab to work
 
@@ -23,9 +24,11 @@
     package = pkgs.gnomeExtensions.gsconnect;
   };
 
-  services.fprintd.enable = true;
+  services.fprintd.enable = true; 
+  # security.pam.services.login.fprintAuth = lib.mkForce true;
+  # security.pam.services.gdm-fingerprint.fprintAuth = lib.mkForce true;
   # If simply enabling fprintd is not enough, try enabling fprintd.tod...
-  services.fprintd.tod.enable = true;
+  # services.fprintd.tod.enable = true;
   # ...and use one of the next four drivers
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-elan;
+  # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-elan;
 }

@@ -76,7 +76,7 @@
   users.users.wasab = {
     isNormalUser = true;
     description = "Wasab";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "input" ];
     packages = with pkgs; [];
     shell = pkgs.fish; # (a reconsiderer)
   };
