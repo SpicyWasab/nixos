@@ -31,7 +31,7 @@
     ];
 
     # switching to zen kernel
-    kernelPackages = pkgs.linuxPackages_zen
+    kernelPackages = pkgs.linuxPackages_zen;
 
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
