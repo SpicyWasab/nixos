@@ -84,6 +84,12 @@
       {
         plugin = pkgs.vimPlugins.typst-preview-nvim;
       }
+      {
+        plugin = pkgs.vimPlugins.auto-pairs;
+      }
+      {
+        plugin = pkgs.vimPlugins.rose-pine;
+      }
     ];
   };
 

@@ -44,5 +44,7 @@
       # for some extensions to work
       libgda5 # for copyous
       libgda6 # because libgda5 doesn't seem to work
+
+      distrobox # putain de TIPE AHHHHHHHHH
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

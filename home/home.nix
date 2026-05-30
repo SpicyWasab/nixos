@@ -6,6 +6,7 @@
     ./cli.nix # shell and cli programs
     ./xdg.nix # for userDirs
     ./gui-common.nix # don't forget to add this as I just did...
+    ./mpd.nix # mpd as well !
   ];
 
   home = {

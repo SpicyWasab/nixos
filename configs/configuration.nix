@@ -29,6 +29,10 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
+
+    # switching to zen kernel
+    kernelPackages = pkgs.linuxPackages_zen
+
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
@@ -84,8 +88,23 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   
-  # flakes baby !
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    # flakes baby !
+    experimental-features = [ "nix-command" "flakes" ];
+    
+    # because my computer starts to freeze whenever I upgrade after a long time without doing so...
+    # TODO : what are the best values here ?
+    max-jobs = 2;
+    cores = 2;
+
+    auto-optimise-store = true;
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    }
+  };
 
   # WASAB
   programs.fish.enable = true; # cannot put this in home manager
@@ -120,7 +139,17 @@
   services.tailscale.enable = true; # to access my raspberry-pi when I'm on a vacation or at my student appartment
 
   # for development
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  # can't believe I only add this almost on June 2026... more than a year to realize I didn't have any swap or zram enabled... I feel ashamed.
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
