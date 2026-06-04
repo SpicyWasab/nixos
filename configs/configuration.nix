@@ -33,6 +33,14 @@
     # switching to zen kernel
     kernelPackages = pkgs.linuxPackages_zen;
 
+    # optimizing values for swap
+    kernel.sysctl = {
+      "vm.swappiness" = 180;
+      "vm.watermark_boost_factor" = 0;
+      "vm.watermark_scale_factor" = 125;
+      "vm.page-cluster" = 0;
+    };
+
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
@@ -148,6 +156,7 @@
   # can't believe I only add this almost on June 2026... more than a year to realize I didn't have any swap or zram enabled... I feel ashamed.
   zramSwap = {
     enable = true;
+    memoryPercent = 150; # 12 Gigs in theory... let's see
     algorithm = "zstd";
   };
 
