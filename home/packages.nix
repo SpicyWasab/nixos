@@ -46,5 +46,7 @@
       libgda6 # because libgda5 doesn't seem to work
 
       distrobox # putain de TIPE AHHHHHHHHH
+
+      protonmail-bridge
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
